@@ -2,12 +2,12 @@
  * Created by Yang, Johnny, Ben
  * MainMenu class handles all the main menu screens. It will also handle going into the game,
  * but the game mechanics will be handled on GamePanel instead.
- * The MainPanel will include the store menu as well, but most of the store mechanics will happen in Store.java. 
+ * The MainPanel will include the store menu as well, but most of the store mechanics will happen in Store.java.
  * This is also the main program you should run off of.
 */
 
-import java.awt.image.*; 
-import java.io.*; 
+import java.awt.image.*;
+import java.io.*;
 import javax.imageio.*;
 import java.util.*;
 import java.awt.*;
@@ -21,9 +21,9 @@ public class MainMenu extends JFrame implements ActionListener {
 	MenuPanel menu;
 	GamePanel game;
 	AudioClip menuMusic;
-	
+
 	public MainMenu() {
-		super("Project Twilight"); 
+		super("Project Twilight");
 		// class of its own
 		setSize(900,700);
 		// Creation of menus
@@ -88,7 +88,7 @@ public class MainMenu extends JFrame implements ActionListener {
 	public static void main(String[] args) {
 		MainMenu start = new MainMenu();
 	}
-}	
+}
 
 class MenuPanel extends JPanel implements MouseMotionListener, MouseListener, KeyListener {
    	// This will be our selection, it switches our pages(instructions, credits, etc)
@@ -103,7 +103,7 @@ class MenuPanel extends JPanel implements MouseMotionListener, MouseListener, Ke
    	private int keepnum;
    	// MUSIC, SOUND FX!! WOO!!
    	AudioClip button, button2;
-   	
+
    	public MenuPanel() {
    		// mouse
    		addMouseMotionListener(this);
@@ -148,12 +148,12 @@ class MenuPanel extends JPanel implements MouseMotionListener, MouseListener, Ke
     // MOUSE LISTENER IS NEEDED TO FOR SHOPS AND STUFF
     public void mouseEntered(MouseEvent e) {}
     public void mouseExited(MouseEvent e) {}
-    public void mouseReleased(MouseEvent e) {}    
+    public void mouseReleased(MouseEvent e) {}
     public void mouseClicked(MouseEvent e) {
     	// we do this so that button.play() won't spam the sound if you hold down the mouse
     	// in this section here, we are changing the menu screen selections
     	if (screen.equals("")) {
-			if (mx > 363 && mx < 540 && my > 444 && my < 467) { 
+			if (mx > 363 && mx < 540 && my > 444 && my < 467) {
 				button.play();
 				screen = "game";
 			}
@@ -227,7 +227,7 @@ class MenuPanel extends JPanel implements MouseMotionListener, MouseListener, Ke
 				}
     		}
     	}
-    }  
+    }
     public void mousePressed(MouseEvent e) {}
     public void mouseMoved(MouseEvent e) {
     	mx = e.getX();
@@ -242,14 +242,14 @@ class MenuPanel extends JPanel implements MouseMotionListener, MouseListener, Ke
         }
     }
     public void keyReleased(KeyEvent e) {}
-    
+
     public void paintComponent(Graphics g){
     //----------------------------MAIN MENU-----------------------------------------
     // in here, we are only getting the highlighting of the screen
     	if (screen.equals("")) { // "" is main menu
     		g.drawImage(menu,0,0,this);
 	    	// highlights game
-	    	if (mx > 363 && mx < 540 && my > 444 && my < 467) { 
+	    	if (mx > 363 && mx < 540 && my > 444 && my < 467) {
 	    		g.drawImage(start,0,0,this);
 	    	}
 	    	// highlights instructions
@@ -258,7 +258,7 @@ class MenuPanel extends JPanel implements MouseMotionListener, MouseListener, Ke
 	    	}
 	    	// this highlights the store
 	    	else if (mx > 366 && mx < 541 && my > 524 && my < 551) {
-	    		g.drawImage(store,0,0,this);  	
+	    		g.drawImage(store,0,0,this);
 	    	}
 	    	else if (mx > 387 && mx < 520 && my > 587 && my < 612) {
 	    		g.drawImage(quit,0,0,this);
