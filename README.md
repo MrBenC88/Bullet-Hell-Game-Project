@@ -5,4 +5,6 @@ The people who've created this game follows:
   - Johnny Nguyen (https://github.com/j-nguyen)
   - Yang (No GitHub available)
 
+**Game Preview: https://youtu.be/7FEzxCRtLQ4**
+
 Based on Java build in 2015.
